@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 const result = document.createElement('div');
 const button = document.createElement('button');
-button.setAttribute('content', 'Get API content')
+button.setAttribute('content', 'Get API content');
 
 function component() {
   const element = document.createElement('div');
@@ -16,12 +16,12 @@ document.body.appendChild(component());
 document.body.appendChild(result);
 const getButton = document.getElementById('extract-weather');
 
-
+const show = document.querySelector('display');
 async function getMap() {
   try {
-    const wmap = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=2nbl8h7s2hbDV8ZimbLX9Y9nAO1TCGwo&s=cats', { mode: 'cors' });
+    const wmap = await fetch('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=d2891a5855e57f4b4703267ed739a6ba', { mode: 'cors' });
     const wdata = await wmap.json();
-    console.log (wdata.data.images.origina.url);
+    show.innerHTML = wdata;
   } catch (err) {
     return err;
   }
