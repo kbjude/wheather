@@ -22,10 +22,15 @@ const getButton = document.getElementById('extract-weather');
 const show = document.querySelector('display');
 async function getMap() {
   try {
-    const wmap = await fetch('https://api.openweathermap.org/data/2.5/weather?q='+searchfield.value+'& APPID=d525220abdcad907f9e83654cb6f042d');
-    const response = await wmap.json();
-    console.log(response);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchfield.value}&APPID=d525220abdcad907f9e83654cb6f042d`, { mode: 'cors' });
+    const json = await response.json();
+    const nameValue = json.name;
+    const tempValue = json.main.temp;
+    const descdata = json.weather[0].description;
 
+    name.innerHTML = nameValue;
+    temperature.innerHTML = tempValue;
+    description.innerHTML = descdata;
   } catch (err) {
     return err;
   }
