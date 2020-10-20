@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import validateForm from './validation';
 
 const searchfield = document.querySelector('#input');
 const searchButton = document.querySelector('#extract-weather');
@@ -6,7 +7,7 @@ const name = document.querySelector('.name');
 const description = document.querySelector('.desc');
 const temperature = document.querySelector('.temp');
 const humidity = document.querySelector('.humidity');
-const wheatherIcon = document.querySelector('.icon');
+// const wheatherIcon = document.querySelector('.icon');
 // const img = document.querySelector('.icon');
 
 // document.body.appendChild(result);
@@ -21,15 +22,17 @@ async function getMap() {
     const tempValue = json.main.temp;
     const descdata = json.weather[0].description;
     const humid = json.main.humidity;
-    const newImg = json.weather[0].icon;
+    // const newImg = json.weather[0].icon;
 
     name.innerHTML = nameValue;
     temperature.innerHTML = tempValue;
     description.innerHTML = descdata;
     humidity.innerHTML = humid;
-    wheatherIcon.innerHTML = newImg;
+    // wheatherIcon.innerHTML = newImg;
   } catch (err) {
     return err;
   }
 }
-getButton.addEventListener('click', getMap);
+getButton.addEventListener('click', getMap, validateForm);
+
+export default getMap;
