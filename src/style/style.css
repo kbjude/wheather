@@ -13,3 +13,10 @@
 #extract-weather {
     border-radius: 10%;
 }
+
+#display {
+    margin-left: 25%;
+    background-color: ivory;
+    width: 40%;
+    margin-top: 2%;
+}
