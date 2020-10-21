@@ -7,7 +7,7 @@ const name = document.querySelector('.name');
 const description = document.querySelector('.desc');
 const temperature = document.querySelector('.temp');
 const humidity = document.querySelector('.humidity');
-const toggle = document.querySelector('toggle');
+const toggle = document.querySelector('.toggle');
 // const wheatherIcon = document.querySelector('.icon');
 const img = document.querySelector('.icon1');
 
@@ -39,12 +39,19 @@ async function getMap() {
     return err;
   }
 }
-getButton.addEventListener('click', getMap, validateForm);
 
+function toggle(){
+  if (weather.temperature.unit === 'celsius'){
+    let fahrenheight = celciusToFahrenheight(weather.temperature.value);
+    fahrenheight = Math.floor(fahreinheight);
+    toggle.innerHTML = `${fahrenheight}o <span>F</span>`;
+    weather.temperature.unit = "fahrenheight";
+  } else {
 
-const FahrenheitTocelsius = (Fahrenheit) => {
-  const newTemp = (fahrenheit - 32) * (5 / 9);
-  return newTemp;
-};
+  }
+}
+
+getButton.addEventListener('click', getMap);
+}
 
 export default getMap;
