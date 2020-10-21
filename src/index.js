@@ -41,13 +41,15 @@ async function getMap() {
 }
 
 function toggle(){
+  if (weather.temperature.unit === underfined) return;
   if (weather.temperature.unit === 'celsius'){
     let fahrenheight = celciusToFahrenheight(weather.temperature.value);
     fahrenheight = Math.floor(fahreinheight);
     toggle.innerHTML = `${fahrenheight}o <span>F</span>`;
     weather.temperature.unit = "fahrenheight";
   } else {
-
+    toggle.innerHTML = `${weather.temperature.value}o <span>C</span>`;
+    weather.temperature.unit = "celsius";
   }
 }
 
