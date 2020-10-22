@@ -36,7 +36,7 @@ async function getMap() {
     weatherValues.nameValue = nameValue;
     weatherValues.tempValue = tempValue;
     weatherValues.temperatureUnit = 'celsius';
-    weatherValues.fahrenheightTempValue = `${celsiusToFahrenheit(tempValue)} °F`;
+    weatherValues.fahrenheightTempValue = `Temperature: ${celsiusToFahrenheit(tempValue)} °F`;
     weatherValues.descdata = descdata;
     weatherValues.humid = humid;
 
@@ -57,7 +57,7 @@ function toggle() {
     document.getElementById('display').style.backgroundColor = 'blue';
   } else {
     weatherValues.temperatureUnit = 'celsius';
-    temperature.innerHTML = `${weatherValues.tempValue} °C `;
+    temperature.innerHTML = `Temperature: ${weatherValues.tempValue} °C `;
     document.getElementById('display').style.backgroundColor = 'green';
   }
 }
