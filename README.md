@@ -2,7 +2,7 @@
 
 ### Screenshots
 
-![Screenshot]()
+![Screenshot](https://github.com/kbjude/wheather/blob/ft-wheather/src/images/weather.png)
 
 ## About the Restaurant:
 This is a project that accesses and consumes and a weather API to avail all the information requested for from the UI. The UI allows a user to punch in a city/location of their choice and the API returns weather related information about that place. 
