@@ -1,5 +1,3 @@
-// import _ from 'lodash';
-// import validateForm from './validation';
 import conversion from './conversion';
 
 const searchfield = document.querySelector('#input');
