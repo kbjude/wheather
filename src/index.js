@@ -17,7 +17,12 @@ const getButton = document.getElementById('extract-weather');
 const show = document.querySelector('display');
 
 const weatherValues = {
+  temperatureUnit: 'celcius',
+};
 
+const celsiusToFahrenheit = (celsius) => {
+  const newTemp = (celsius * (9 / 5)) + 32;
+  return newTemp;
 };
 
 async function getMap() {
@@ -30,6 +35,8 @@ async function getMap() {
     const humid = json.main.humidity;
     weatherValues.nameValue = nameValue;
     weatherValues.tempValue = tempValue;
+    weatherValues.temperatureUnit = 'celsius';
+    weatherValues.fahrenheightTempValue = `${celsiusToFahrenheit(tempValue)} °F`;
     weatherValues.descdata = descdata;
     weatherValues.humid = humid;
 
@@ -38,34 +45,22 @@ async function getMap() {
     description.innerHTML = descdata;
     humidity.innerHTML = humid;
     img.src = `https://fernando-bc.com/weather-icons/${json.weather[0].icon}.svg`;
-    // wheatherIcon.innerHTML = newImg;
   } catch (err) {
     return err;
   }
-  console.log(weatherValues);
-  // return weatherValues;
 }
 
-const celsiusToFahrenheit = async (celsius) => {
-  const newTemp = (celsius * (9 / 5)) + 32;
-  return newTemp;
-};
-console.log(celsiusToFahrenheit(weatherValues.tempValue));
+function toggle() {
+  if (weatherValues.temperatureUnit === 'celsius') {
+    weatherValues.temperatureUnit = 'fahrenheit';
+    temperature.innerHTML = weatherValues.fahrenheightTempValue;
+  } else {
+    weatherValues.temperatureUnit = 'celsius';
+    temperature.innerHTML = `${weatherValues.tempValue} °C `;
+  }
+}
 
-// function toggle() {
-//   const temperatureUnit = 'celsius';
-//   if (temperatureUnit === undefined) return;
-//   if (temperatureUnit === 'celsius') {
-//     let fahrenheight = celsiusToFahrenheit(weather.temperature.value);
-//     fahrenheight = Math.floor(fahreinheight);
-//     btntoggle.innerHTML = `${fahrenheight}o <span>F</span>`;
-//     weather.temperature.unit = 'fahrenheight';
-//   } else {
-//     btntoggle.innerHTML = `${weather.temperature.value}o <span>C</span>`;
-//     weather.temperature.unit = 'celsius';
-//   }
-// }
-
+btntoggle.addEventListener('click', toggle);
 getButton.addEventListener('click', getMap);
 
 export default getMap;
