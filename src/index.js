@@ -41,9 +41,9 @@ async function getMap() {
     weatherValues.humid = humid;
 
     name.innerHTML = nameValue;
-    temperature.innerHTML = tempValue;
-    description.innerHTML = descdata;
-    humidity.innerHTML = humid;
+    temperature.innerHTML = `Temperature: ${tempValue} °C`;
+    description.innerHTML = `Description: ${descdata}`;
+    humidity.innerHTML = `Humidity: ${humid}`;
     img.src = `https://fernando-bc.com/weather-icons/${json.weather[0].icon}.svg`;
   } catch (err) {
     return err;
