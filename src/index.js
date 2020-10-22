@@ -1,28 +1,19 @@
-import _ from 'lodash';
-import validateForm from './validation';
+// import _ from 'lodash';
+// import validateForm from './validation';
+import conversion from './conversion';
 
 const searchfield = document.querySelector('#input');
-const searchButton = document.querySelector('#extract-weather');
 const name = document.querySelector('.name');
 const description = document.querySelector('.desc');
 const temperature = document.querySelector('.temp');
 const humidity = document.querySelector('.humidity');
 const btntoggle = document.querySelector('.toggle');
-// const wheatherIcon = document.querySelector('.icon');
 const img = document.querySelector('.icon1');
 
-// document.body.appendChild(result);
 const getButton = document.getElementById('extract-weather');
-
-const show = document.querySelector('display');
 
 const weatherValues = {
   temperatureUnit: 'celcius',
-};
-
-const celsiusToFahrenheit = (celsius) => {
-  const newTemp = (celsius * (9 / 5)) + 32;
-  return newTemp;
 };
 
 async function getMap() {
@@ -36,7 +27,7 @@ async function getMap() {
     weatherValues.nameValue = nameValue;
     weatherValues.tempValue = tempValue;
     weatherValues.temperatureUnit = 'celsius';
-    weatherValues.fahrenheightTempValue = `Temperature: ${celsiusToFahrenheit(tempValue)} °F`;
+    weatherValues.fahrenheightTempValue = `Temperature: ${conversion.celsiusToFahrenheit(tempValue)} °F`;
     weatherValues.descdata = descdata;
     weatherValues.humid = humid;
 
