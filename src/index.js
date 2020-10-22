@@ -34,6 +34,7 @@ async function getMap() {
     description.innerHTML = `Description: ${descdata}`;
     humidity.innerHTML = `Humidity: ${humid}`;
     img.src = `https://fernando-bc.com/weather-icons/${json.weather[0].icon}.svg`;
+    return response;
   } catch (err) {
     return err;
   }
