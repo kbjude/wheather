@@ -54,9 +54,11 @@ function toggle() {
   if (weatherValues.temperatureUnit === 'celsius') {
     weatherValues.temperatureUnit = 'fahrenheit';
     temperature.innerHTML = weatherValues.fahrenheightTempValue;
+    document.getElementById('display').style.backgroundColor = 'blue';
   } else {
     weatherValues.temperatureUnit = 'celsius';
     temperature.innerHTML = `${weatherValues.tempValue} °C `;
+    document.getElementById('display').style.backgroundColor = 'green';
   }
 }
 
