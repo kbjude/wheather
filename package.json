@@ -1,0 +1,30 @@
+{
+  "name": "wheather",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "start": "webpack-dev-server --host 0.0.0.0 --port 7000",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kbjude/wheather.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kbjude/wheather/issues"
+  },
+  "homepage": "https://github.com/kbjude/wheather#readme",
+  "devDependencies": {
+    "css-minimizer-webpack-plugin": "^1.1.5",
+    "mini-css-extract-plugin": "^1.0.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0"
+  }
+}
