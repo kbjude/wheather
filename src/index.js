@@ -40,7 +40,7 @@ async function getMap() {
   }
 }
 
-function toggle() {
+const toggle = () => {
   if (weatherValues.temperatureUnit === 'celsius') {
     weatherValues.temperatureUnit = 'fahrenheit';
     temperature.innerHTML = weatherValues.fahrenheightTempValue;
@@ -50,7 +50,7 @@ function toggle() {
     temperature.innerHTML = `Temperature: ${weatherValues.tempValue} °C `;
     document.getElementById('display').style.backgroundColor = 'green';
   }
-}
+};
 
 btntoggle.addEventListener('click', toggle);
 getButton.addEventListener('click', getMap);
