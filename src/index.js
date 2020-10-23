@@ -14,7 +14,7 @@ const weatherValues = {
   temperatureUnit: 'celcius',
 };
 
-async function getMap() {
+const getMap = async () => {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchfield.value}&units=metric&APPID=d525220abdcad907f9e83654cb6f042d`, { mode: 'cors' });
     const json = await response.json();
@@ -28,7 +28,6 @@ async function getMap() {
     weatherValues.fahrenheightTempValue = `Temperature: ${conversion.celsiusToFahrenheit(tempValue)} °F`;
     weatherValues.descdata = descdata;
     weatherValues.humid = humid;
-
     name.innerHTML = nameValue;
     temperature.innerHTML = `Temperature: ${tempValue} °C`;
     description.innerHTML = `Description: ${descdata}`;
@@ -38,7 +37,7 @@ async function getMap() {
   } catch (err) {
     return err;
   }
-}
+};
 
 const toggle = () => {
   if (weatherValues.temperatureUnit === 'celsius') {
